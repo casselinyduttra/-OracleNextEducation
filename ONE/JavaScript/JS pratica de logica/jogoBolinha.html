@@ -1,0 +1,40 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0,0,600,400);
+
+    var cores = ["blue", "red", "green"];
+    var corInicial = 0; //comeca com azul
+
+    function desenhaCirculo(evento){
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        pincel.fillStyle = cores[corInicial];
+        pincel.beginPath();
+        pincel.arc (x, y, 10, 0, 2*3.14);
+        pincel.fill();
+        console.log(x + "," + y);
+    }
+
+    tela.onclick = desenhaCirculo;
+
+    function mudarCor(){
+        corInicial++;
+        if (corInicial >= cores.length){
+            corInicial = 0;
+        }
+        return false;
+    }
+
+    tela.oncontextmenu = mudarCor;
+    // comando para executar a mudanca de cor da bolinha com o clique do botao direito do mouse.
+    //botao direito muda a cor na ordem:  azul, vermelho, verde
+    // botao direito faz os cliques para as bolinhas aparecerem.
+
+</script>

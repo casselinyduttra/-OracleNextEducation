@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha(){
+        document.write("<br><hr><br>")
+    }
+
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sortearNumero (numero){
+        return Math.round(Math.random() * numero);
+    }
+
+    var numSorteado = sortearNumero(5);
+    
+    var seuChute = parseInt(prompt("Tente adivinhar o numero que eu pensei :)"));
+    
+    if (seuChute == numSorteado){
+        mostra(" Que fixe, tens uma bela bola de cristal :))");
+    }
+
+    else {
+    
+        if (seuChute > numSorteado){
+            mostra(" ** Pensaste a grande :))) ");
+            mostra(" Epáa vamos tentar novamente " + " <br>")
+        }
+        if (seuChute < numSorteado){
+            mostra(" **Pensaste em um numero menor que o meu ** ");
+            mostra(" Epáa vamos tentar novamente " + " <br>")
+        }
+        
+    }
+
+
+</Script>

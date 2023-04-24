@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha(){
+        document.write("<br><hr><br>")
+    }
+
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sortear(n){
+        return Math.round(Math.random() * n); // pedimos para o computador pensar em um numero aleatorio por meio do Math.random() e * por 10 para obter numeros de 1 a 10
+    // e o Math.round arredonda o valor para obter um numero inteiro.
+    }
+
+    var numeroPensado = sortear(10);
+
+    var tentativas = 1;
+
+    while(tentativas <= 3){
+
+        var chute = parseInt(prompt(" Já pensei. Qual você acha que é? "));
+
+        if (chute == numeroPensado){
+
+            mostra(" Uau! Você acertou, pois eu pensei no número " + numeroPensado );
+            break;
+        }
+
+        else {
+            if( chute > numeroPensado){
+                mostra(" Você errou!! ** Seu número é maior que o número pensado " + " ** ");
+            }
+            if( chute < numeroPensado){
+                mostra(" Você errou!! ** Seu número é menor que o número pensado " + " ** ");
+            }
+        }
+        tentativas++; 
+    }
+    mostra(" FIM!! ");
+</Script>
